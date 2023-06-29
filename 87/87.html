@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let data = localStorage.getItem('data')
+        if(!data) {
+            localStorage.setItem("data", "0")
+        } else {
+            console.log(data >= 10)
+            if(data > 10) {
+                localStorage.removeItem('data')
+                alert("Счётчик обнулился")
+            } else {
+                let newData = Number(data)
+                newData++
+                
+                localStorage.setItem("data", String(newData))
+                alert(`Кол-во обновлений: ${newData}`)
+            }   
+        }
+    </script>
+</body>
+</html>

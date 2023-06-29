@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="surname" type="text" placeholder="Фамилия">
+    <input id="name" type="text" placeholder="Имя">
+    <input id="age" type="number" placeholder="Возраст">
+    <button type="button">Click</button>
+</body>
+    <script>
+         let name = document.querySelector("#name")
+         let surname = document.querySelector("#surname")
+         let age = document.querySelector("#age")
+
+         let btn = document.querySelector('button')
+        if(!localStorage.getItem("users")) {
+            let users = [
+                {
+                    surn: 'surn1',
+                    name: 'name1',
+                    age: 31,
+                },
+                {
+                    surn: 'surn2',
+                    name: 'name2',
+                    age: 32,
+                },
+                {
+                    surn: 'surn',
+                    name: 'name3',
+                    age: 33,
+                },
+            ];
+
+        localStorage.setItem("users", JSON.stringify(users))
+        }
+
+        btn.addEventListener('click', () => {
+            let json = localStorage.getItem('users');
+            let data = JSON.parse(json);
+
+            data.push({
+                surn: surname.value,
+                name: name.value,
+                age: age.value
+            })
+
+            localStorage.setItem('users', JSON.stringify(data))
+        })
+    </script>
+</html> 

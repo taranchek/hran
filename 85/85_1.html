@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let time = localStorage.getItem("time")
+
+        if(!time) {
+            let first = Date.now();
+            localStorage.setItem('time', first)
+        } else {
+            let last = Math.floor((Date.now() - time) / 1000)
+            localStorage.setItem("time", Date.now())
+            alert(`С предыдущего захода в секундах прошло ${last}`)
+        }
+    </script>    
+</body>
+</html>

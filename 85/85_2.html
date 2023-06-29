@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let date = localStorage.getItem('date')
+
+        if(!date){
+            let birthday = prompt("Введите день рождения в формате ММ.ДД.ГГГГ", "06.05.2000")
+
+            localStorage.setItem('date', new Date(birthday))
+        } else {
+            let newDate = new Date(date)
+            let birthDay = newDate.getDate()
+            let birthMonth = newDate.getMonth()
+
+            let now = new Date()
+            let nowDay = now.getDate()
+            let nowMonth = now.getMonth()
+
+            if(birthDay == nowDay && birthMonth == nowMonth) {
+                alert("С днём рождения!")
+            }
+        }
+    </script>
+</body>
+</html>
